@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "astrology-mcp"
+version = "0.1.0"
+description = "Swiss Ephemeris-powered Indian astrology context server for MCP agents"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.26,<2",
+    "pyswisseph>=2.10.3.2,<3",
+    "timezonefinder>=8,<9",
+    "tzdata>=2025.2",
+]
+
+[project.scripts]
+astrology-mcp = "astrology_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/astrology_mcp"]
